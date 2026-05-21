@@ -29,3 +29,14 @@ jobs:
 
     - name: Run Pytest Suite in Headless Mode
       run: pytest tests/
+
+
+    - name: Run Pytest Suite in Headless Mode
+      run: pytest tests/
+
+    - name: Upload Failure Screenshots Asset
+      if: failure() # This block will ONLY run if the pytest step fails
+      uses: actions/upload-artifact@v4
+      with:
+        name: failure-screenshots
+        path: screenshots/
